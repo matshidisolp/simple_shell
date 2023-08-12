@@ -22,9 +22,9 @@ void print_str(char *str)
   */
 int main(void)
 {
-	char *lineptr = NULL;
-	size_t n = 0;
-	ssize_t num_char = 1;
+	char *lineptr;
+	size_t n;
+	ssize_t num_char;
 	char *prompt = "okimatshell$ ";
 
 	while (num_char > 0)
