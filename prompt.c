@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <string.h>
 
 /**
   *print_str- prints a string
@@ -24,16 +25,24 @@ void print_str(char *str)
   */
 int main(void)
 {
-	char *lineptr;
-	size_t n;
-	ssize_t num_char;
+	char *lineptr = NULL;
+	size_t n = 0;
+	ssize_t num_char = 1;
 	char *prompt = "okmatshell$ ";
 
 	while (num_char > 0)
 	{
 		print_str(prompt);
 		num_char = getline(&lineptr, &n, stdin);
-		print_str(lineptr);
+		if (num_char > 0)
+		{
+			lineptr[num_char - 1] = '\0';
+			if (strcmp(lineptr, "exit") == 0)
+				break;
+			print_str(lineptr);
+			print_str("\n");
+		}
 	}
+	free(lineptr);
 	return (0);
 }
