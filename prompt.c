@@ -1,26 +1,39 @@
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdbool.h>
 
 /**
-  *main- print out command from user
+  *print_str- prints a string
+  *@str: pointer to string to be printed
+  *
+  *Return: the string
+  */
+void print_str(char *str)
+{
+	while (*str)
+	{
+		write(STDOUT_FILENO, str, 1);
+		str++;
+	}
+}
+/**
+  *main- prompt user for a command and print it to stdout
   *
   *Return: command that user inputs
   */
 int main(void)
 {
-	char usercmd[100];
+	char *lineptr;
+	size_t n;
+	ssize_t num_char;
+	char *prompt = "okmatshell$ ";
 
-	printf("$ ");
-	if (fgets(usercmd, sizeof(usercmd), stdin) == NULL)
-		printf("$\n");
-	else
+	while (num_char > 0)
 	{
-		usercmd[strcspn(usercmd, "\n")] = '\0';
-		if (strcmp(usercmd, "exit") == 0)
-			return (0);
-		printf("%s\n", usercmd);
+		print_str(prompt);
+		num_char = getline(&lineptr, &n, stdin);
+		print_str(lineptr);
 	}
-
 	return (0);
 }
