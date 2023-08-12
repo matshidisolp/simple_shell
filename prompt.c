@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdbool.h>
 #include <string.h>
 
 /**
   *print_str- prints a string
   *@str: pointer to string to be printed
-  *
-  *Return: the string
   */
 void print_str(char *str)
 {
@@ -28,7 +25,7 @@ int main(void)
 	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t num_char = 1;
-	char *prompt = "okmatshell$ ";
+	char *prompt = "okimatshell$ ";
 
 	while (num_char > 0)
 	{
