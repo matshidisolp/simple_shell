@@ -1,45 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
+#include "main.h"
 
 /**
-  *print_str- prints a string
-  *@str: pointer to string to be printed
+  *prompt- prints a string
+  *Description: function prints a prompt to stdout
+  *Return:
   */
-void print_str(char *str)
+void prompt(void)
 {
+	char *str = "okimatshell$ ";
+
 	while (*str)
 	{
 		write(STDOUT_FILENO, str, 1);
 		str++;
 	}
-}
-/**
-  *main- prompt user for a command and print it to stdout
-  *
-  *Return: command that user inputs
-  */
-int main(void)
-{
-	char *lineptr;
-	size_t n;
-	ssize_t num_char;
-	char *prompt = "okimatshell$ ";
-
-	while (num_char > 0)
-	{
-		print_str(prompt);
-		num_char = getline(&lineptr, &n, stdin);
-		if (num_char > 0)
-		{
-			lineptr[num_char - 1] = '\0';
-			if (strcmp(lineptr, "exit") == 0)
-				break;
-			print_str(lineptr);
-			print_str("\n");
-		}
-	}
-	free(lineptr);
-	return (0);
 }
