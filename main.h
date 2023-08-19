@@ -7,6 +7,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <stddef.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
 
 /**prototypes*/
 void prompt(void);
@@ -16,4 +19,6 @@ char **get_token(char *buff);
 char **resize_buff(char **buff, unsigned int old_size);
 ssize_t readline(char **buff, size_t *n);
 int _strlen_recursion(char *s);
+int executor(char *tokens[]);
+extern char **environ;
 #endif

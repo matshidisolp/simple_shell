@@ -21,11 +21,9 @@ int main(void)
 		tokens = get_token(buff);
 		while (tokens[i])
 		{
-			printf("%s\n", tokens[i]);
-			i++;
+			executor(tokens);
+			free(tokens);
 		}
-		free(tokens);
 	}
-	free(buff);
 	return (0);
 }

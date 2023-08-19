@@ -20,4 +20,3 @@ ssize_t readline(char **buff, size_t *n)
 	else
 		return (bytes_read);
 }
-
