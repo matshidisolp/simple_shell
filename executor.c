@@ -3,8 +3,7 @@
 *executor- takes command and executes it
 *@tokens: null terminated array of strings
 *desription: gets a command from gettoken and executes it
-*Return: result output based on command mimicking Linux shell or,
-*        error if command cannot be found and prompt again
+*Return: result output based on command mimicking Linux bash
 */
 int executor(char *tokens[])
 {
