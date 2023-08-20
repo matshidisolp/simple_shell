@@ -18,8 +18,9 @@ int main(void)
 		tokens = get_token(buff, delim);
 		handle_exit(tokens);
 		executor(tokens);
+		lunch(tokens);
 		free(tokens);
 	} while (status != -1);
-		free(buff);
+	free(buff);
 	return (0);
 }

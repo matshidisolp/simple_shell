@@ -13,8 +13,8 @@ int executor(char *tokens[])
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("error forking:");
-		exit(EXIT_FAILURE);
+		perror("./hsh");
+		return (-1);
 	}
 	else if (child_pid == 0)
 	{
