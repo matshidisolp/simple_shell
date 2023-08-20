@@ -7,7 +7,7 @@
   */
 void prompt(void)
 {
-	char *str = "okimatshell$ ";
+	char *str = "$ ";
 
 	while (*str)
 	{
