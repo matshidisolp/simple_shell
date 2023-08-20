@@ -19,9 +19,12 @@ int main(void)
 		handle_exit(tokens);
 		executor(tokens);
 		lunch(tokens);
+<<<<<<< HEAD
 		/*executor(tokens);*/
+=======
+>>>>>>> 32855b18f99b1de3e5058be926ac2cd9c19601f6
 		free(tokens);
 	} while (status != -1);
-		free(buff);
+	free(buff);
 	return (0);
 }
