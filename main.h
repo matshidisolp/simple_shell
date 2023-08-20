@@ -37,6 +37,6 @@ char *build_path(char *cmd);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
-int _strlen_recursion(char *s);
+int _strlen_recursion(const char *s);
 int executor(char *tokens[]);
 #endif
