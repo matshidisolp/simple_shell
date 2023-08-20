@@ -8,9 +8,12 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/stat.h>
 /*global variables*/
 extern char **environ;
+
+/*structures*/
 /**
   * struct stat - stores info about a a file
   * Description: stores info about a file
@@ -34,4 +37,6 @@ char *build_path(char *cmd);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
+int _strlen_recursion(char *s);
+int executor(char *tokens[]);
 #endif
