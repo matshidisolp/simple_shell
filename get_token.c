@@ -3,29 +3,31 @@
 /**
   * get_token - gets tokens from string
   * @buff: pointer to string
+  * @delim: pointer to string
   * desciption: gets tokens from a string using a specified delimeter
   * Return: array of strings or NULL
 */
 
-char **get_token(char *buff)
+char **get_token(char *buff, char *delim)
 {
 	int pos, buff_size, old_size;
-	char *token, *delim;
+	char *token;
 	char **tokens;
 
 	if (buff == NULL)
 	{
 		perror("./hsh");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
+	if (*buff == '\n')
+		return (NULL);
 	pos = 0;
-	delim = " \n";
 	buff_size = 64;
 	tokens = malloc(sizeof(char *) * buff_size);
 	if (tokens == NULL)
 	{
 		perror("./hsh");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	token = strtok(buff, delim);
 	while (token)
@@ -36,6 +38,11 @@ char **get_token(char *buff)
 		{
 			old_size = sizeof(char *) * buff_size;
 			tokens = resize_buff(tokens, old_size);
+			if (tokens == NULL)
+			{
+				perror("/hsh");
+				return (NULL);
+			}
 			buff_size += buff_size;
 		}
 		token = strtok(NULL, delim);
@@ -60,7 +67,7 @@ char **resize_buff(char **buff, unsigned int old_size)
 	if (buff == NULL)
 	{
 		perror("./hsh");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	return (buff);
 }

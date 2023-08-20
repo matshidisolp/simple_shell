@@ -5,25 +5,20 @@
   */
 int main(void)
 {
-	ssize_t status;
-	int i;
+	int status;
 	size_t n;
-	char *buff;
+	char *buff, *delim;
 	char **tokens;
 
-	status = 1;
-	i = 0;
-	while (status != -1)
-	{
-		i = 0;
+	delim = " \n";
+	status = 0;
+	do {
 		prompt();
 		status = readline(&buff, &n);
-		tokens = get_token(buff);
-		while (tokens[i])
-		{
-			executor(tokens);
-			free(tokens);
-		}
-	}
+		tokens = get_token(buff, delim);
+    executor(tokens);
+		free(tokens);
+	} while (status != -1);
+  free(buff);
 	return (0);
 }
