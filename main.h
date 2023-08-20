@@ -39,4 +39,5 @@ char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
 int _strlen_recursion(const char *s);
 int executor(char *tokens[]);
+void handle_exit(char *tokens[]);
 #endif
