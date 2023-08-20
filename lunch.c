@@ -12,23 +12,24 @@ void lunch(char **arg)
 	char *cmd_path;
 	char *cmd;
 
-	/*check if command is a path or regular command*/
 	if (arg == NULL)
 		return;
 	cmd = arg[0];
+	if (_strcmp(cmd, "evn") == 0)
+	{
+		printevn();
+		return;
+	}
 	is_path = if_path(cmd);
 	if (is_path == 0)
 	{
-		/*check if path exist*/
 		path_ext = find_path(cmd);
 		if (path_ext == 0)
 		{
-			/*fork and execute*/
 			executor(arg);
 		}
 		else
 		{
-			/*handle error;*/
 			perror("./hsh");
 		}
 	}
@@ -37,16 +38,13 @@ void lunch(char **arg)
 		cmd_path = build_path(cmd);
 		if (cmd_path != NULL)
 		{
-			/*fork and execute*/
 			arg[0] = cmd_path;
 			executor(arg);
 			free(cmd_path);
 		}
 		else
 		{
-			/*handle error*/
 			perror("./hsh");
 		}
 	}
 }
-
