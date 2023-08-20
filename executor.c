@@ -14,15 +14,14 @@ int executor(char *tokens[])
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("error forking:");
-		exit(EXIT_FAILURE);
+		perror("./hsh");
+		return (-1);
 	}
 	else if (child_pid == 0)
 	{
 		if (execve(tokens[0], tokens, environ) == -1)
 		{
-			printf("%s: command not found\n", tokens[0]);
-			exit(EXIT_FAILURE);
+			perror("./hsh");
 		}
 	}
 	else

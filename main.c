@@ -16,9 +16,9 @@ int main(void)
 		prompt();
 		status = readline(&buff, &n);
 		tokens = get_token(buff, delim);
-    executor(tokens);
+		lunch(tokens);
 		free(tokens);
 	} while (status != -1);
-  free(buff);
+	free(buff);
 	return (0);
 }
