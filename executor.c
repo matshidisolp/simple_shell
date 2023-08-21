@@ -20,9 +20,7 @@ int executor(char *tokens[])
 	{
 		if (execve(tokens[0], tokens, environ) == -1)
 		{
-			write(2, tokens[0], strlen(tokens[0]));
-			write(2, ": command not found\n", sizeof(": command not found\n") - 1);
-			exit(EXIT_FAILURE);
+			perror("./hsh");
 		}
 	}
 	else

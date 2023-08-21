@@ -22,6 +22,7 @@ void handle_exit(char *tokens[])
 	if (_strcmp(token_cpy, "exit") == 0)
 	{
 		free(token_cpy);
-		kill(getpid(), SIGTERM);
+		exit(0);
+		/*kill(getpid(), SIGTERM);*/
 	}
 }
