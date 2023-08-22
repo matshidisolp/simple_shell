@@ -10,12 +10,17 @@ int main(void)
 	char *buff, *delim;
 	char **tokens;
 
-	delim = " \n";
+	delim = " \n\t\a\r";
 	status = 0;
 	do {
 		prompt();
 		status = readline(&buff, &n);
 		tokens = get_token(buff, delim);
+		if (*buff == '\n' || *tokens == NULL)
+		{
+			free(tokens);
+			continue;
+		}
 		handle_exit(tokens);
 		lunch(tokens);
 		free(tokens);
