@@ -13,20 +13,5 @@ ssize_t readline(char **buff, size_t *n)
 	ssize_t bytes_read;
 
 	bytes_read = getline(buff, n, stdin);
-	if (bytes_read == -1)
-	{
-		if (isatty(fileno(stdin)))
-		{
-			/*Check for EOF (Ctrl+D)*/
-			free(*buff);
-			write(STDOUT_FILENO, "\n", 1);
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			perror("getline");
-			exit(EXIT_FAILURE);
-		}
-	}
 	return (bytes_read);
 }

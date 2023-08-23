@@ -10,7 +10,7 @@ char *_getenv(const char *name)
 {
 	int i, len;
 	char *curr_env_cpy, *token;
-
+	/*check if environ is null*/
 	len = _strlen_recursion(name);
 	i = 0;
 	while (environ[i])
