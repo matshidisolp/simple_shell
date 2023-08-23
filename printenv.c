@@ -1,10 +1,10 @@
 #include "main.h"
 /**
-  * printevn - print current enviroment
+  * printenv - print current enviroment
   * description: prints the program enviroment variable
   * Return: nothing
 */
-void printevn(void)
+void printenv(void)
 {
 	int i, j;
 
