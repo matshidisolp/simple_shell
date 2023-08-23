@@ -15,9 +15,9 @@ void lunch(char **arg)
 	if (arg == NULL)
 		return;
 	cmd = arg[0];
-	if (_strcmp(cmd, "evn") == 0)
+	if (_strcmp(cmd, "env") == 0)
 	{
-		printevn();
+		printenv();
 		return;
 	}
 	is_path = if_path(cmd);
