@@ -3,7 +3,7 @@
 /**
   *handle_exit- terminates the program using kill
   *@tokens: null terminated array of strings
-  *@buff: buffer 
+  *@buff: buffer
   *description: mimicks Linux bash when user inputs exit
   *		program terminates
   */
