@@ -21,7 +21,7 @@ int main(void)
 			free(tokens);
 			continue;
 		}
-		handle_exit(tokens);
+		handle_exit(tokens, buff);
 		lunch(tokens);
 		free(tokens);
 	} while (status != -1);
