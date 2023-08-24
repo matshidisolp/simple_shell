@@ -10,10 +10,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <errno.h>
 /*global variables*/
 extern char **environ;
-extern int errno;
 /*structures*/
 /**
   * struct stat - stores info about a a file
