@@ -14,6 +14,9 @@ void handle_exit(char *tokens[], char *buff)
 	{
 		free(tokens);
 		free(buff);
-		exit(errno);
+		if (errno == 0)
+			exit(EXIT_SUCCESS);
+		else
+			exit(errno);
 	}
 }
