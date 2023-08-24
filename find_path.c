@@ -70,7 +70,6 @@ char *build_path(char *cmd)
 		{
 			free(dirs);
 			free(path_cpy);
-			errno = 0;
 			return (cmd_path);
 		}
 		free(cmd_path);
