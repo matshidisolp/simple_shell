@@ -7,7 +7,7 @@
   */
 void prompt(void)
 {
-	char *str = "$ ";
+	char *str = "($) ";
 
 	while (*str)
 	{

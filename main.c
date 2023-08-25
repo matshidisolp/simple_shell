@@ -10,16 +10,33 @@ int main(void)
 	char *buff, *delim;
 	char **tokens;
 
-	delim = " \n";
+	delim = " \n\t\a\r";
+	buff = NULL;
+	n = 0;
 	status = 0;
-	do {
+	if (isatty(STDIN_FILENO) == 1)
 		prompt();
-		status = readline(&buff, &n);
+
+	while ((status = readline(&buff, &n)) != -1)
+	{
 		tokens = get_token(buff, delim);
-		handle_exit(tokens);
+		if (*buff == '\n' || *tokens == NULL)
+		{
+			free(tokens);
+			if (isatty(STDIN_FILENO) == 1)
+				prompt();
+
+			continue;
+		}
+		handle_exit(tokens, buff);
 		lunch(tokens);
 		free(tokens);
-	} while (status != -1);
+		if (isatty(STDIN_FILENO) == 1)
+			prompt();
+
+	}
 	free(buff);
+	if (isatty(STDIN_FILENO) == 1)
+		putchar('\n');
 	return (0);
 }

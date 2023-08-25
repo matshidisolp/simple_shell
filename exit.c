@@ -3,26 +3,17 @@
 /**
   *handle_exit- terminates the program using kill
   *@tokens: null terminated array of strings
+  *@buff: buffer
   *description: mimicks Linux bash when user inputs exit
   *		program terminates
   */
-void handle_exit(char *tokens[])
+void handle_exit(char *tokens[], char *buff)
 {
-	int i = 0;
-	size_t token_len = _strlen_recursion(tokens[i]);
-	char *token_cpy = _strdup(tokens[i]);
 
-	if (token_cpy == NULL)
+	if (_strcmp(tokens[0], "exit") == 0)
 	{
-		perror("Memory allocation failed");
-		exit(1);
-	}
-	if (token_cpy[token_len - 1] == '\n')
-		token_cpy[token_len - 1] = '\0';
-	if (_strcmp(token_cpy, "exit") == 0)
-	{
-		free(token_cpy);
-		exit(0);
-		/*kill(getpid(), SIGTERM);*/
+		free(tokens);
+		free(buff);
+		exit(EXIT_SUCCESS);
 	}
 }
