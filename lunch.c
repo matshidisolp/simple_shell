@@ -29,10 +29,7 @@ void lunch(char **arg)
 			executor(arg);
 		}
 		else
-		{
-			perror("./hsh");
-		}
-	}
+      format_error(cmd);
 	else
 	{
 		cmd_path = build_path(cmd);
@@ -43,8 +40,6 @@ void lunch(char **arg)
 			free(cmd_path);
 		}
 		else
-		{
-			perror("./hsh");
-		}
+			format_error(cmd);
 	}
 }

@@ -38,6 +38,8 @@ char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
 int _strlen_recursion(const char *s);
 int executor(char *tokens[]);
+ssize_t int_to_string(int value, char *buffer);
+void format_error(const char *token);
 void handle_exit(char *tokens[], char *buff);
 void printenv(void);
 int _putchar(char c);
