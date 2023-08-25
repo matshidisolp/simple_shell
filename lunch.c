@@ -29,7 +29,8 @@ void lunch(char **arg)
 			executor(arg);
 		}
 		else
-      format_error(cmd);
+			format_error(cmd);
+	}
 	else
 	{
 		cmd_path = build_path(cmd);
