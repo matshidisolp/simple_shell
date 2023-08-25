@@ -40,4 +40,6 @@ char *_getenv(const char *name);
 int _strlen_recursion(const char *s);
 int executor(char *tokens[]);
 void handle_exit(char *tokens[]);
+ssize_t int_to_string(int value, char *buffer);
+void format_error(const char *token);
 #endif

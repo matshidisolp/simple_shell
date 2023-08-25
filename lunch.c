@@ -27,10 +27,7 @@ void lunch(char **arg)
 			executor(arg);
 		}
 		else
-		{
-			/*handle error;*/
-			perror("./hsh");
-		}
+			format_error(cmd);
 	}
 	else
 	{
@@ -43,10 +40,6 @@ void lunch(char **arg)
 			free(cmd_path);
 		}
 		else
-		{
-			/*handle error*/
-			perror("./hsh");
-		}
+			format_error(cmd);
 	}
 }
-
